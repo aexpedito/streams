@@ -1,0 +1,52 @@
+{
+    "schemaName": "credit_card",
+    "primaryKeyColumns": ["id"],
+    "dimensionFieldSpecs": [
+        {
+            "name": "id",
+            "dataType": "STRING"
+        },
+        {
+            "name": "distance_from_home",
+            "dataType": "DOUBLE"
+        },
+        {
+            "name": "distance_from_last_transaction",
+            "dataType": "DOUBLE"
+        },
+        {
+            "name": "repeat_retailer",
+            "dataType": "INT"
+        },
+        {
+            "name": "used_chip",
+            "dataType": "INT"
+        },
+        {
+            "name": "used_pin_number",
+            "dataType": "INT"
+        },
+        {
+            "name": "online_order",
+            "dataType": "INT"
+        },
+        {
+            "name": "fraud",
+            "dataType": "INT"
+        }
+    ],
+    "metricFieldSpecs": [
+        {
+            "name": "ratio_to_median_purchase_price",
+            "dataType": "DOUBLE"
+        }
+    ],
+    "dateTimeFieldSpecs": [
+        {
+            "name": "ts",
+            "dataType": "TIMESTAMP",
+            "format": "1:MILLISECONDS:EPOCH",
+            "granularity": "1:MILLISECONDS"
+        }
+    ]
+}

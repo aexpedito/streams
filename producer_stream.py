@@ -2,6 +2,8 @@ from kafka import KafkaProducer
 import pandas as pd
 import json as json
 from time import sleep
+from uuid import uuid4
+from datetime import datetime
 
 #Setup kafka producer
 def serializer(message):
@@ -24,7 +26,10 @@ def main():
 	iter = data.iterrows()
 	for index, row in data.iterrows():
 		# send payload do consumers
+		now = datetime.now()
 		payload = {
+			"id": f'{uuid4()}',
+			"createdAt": now.strftime('%Y-%m-%dT%H:%M:%S.') + f'{now.microsecond:06d}',
 			"distance_from_home": row["distance_from_home"],
 			"distance_from_last_transaction": row["distance_from_last_transaction"],
 			"ratio_to_median_purchase_price": row["ratio_to_median_purchase_price"],
@@ -34,7 +39,7 @@ def main():
 			"online_order": row["online_order"],
 			"fraud": row["fraud"],
 		}
-		send_message('test_topic', payload)
+		send_message('credit_card', payload)
 		sleep(5)
 
 	print("Finished producer")

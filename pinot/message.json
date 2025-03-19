@@ -1,0 +1,12 @@
+{
+    "id":"3d0d442f-1afc-494a-8c75-0e67fa8b31d3",
+    "createdAt":"2022-09-06T10:46:17.481843",
+    "distance_from_home":523,
+    "distance_from_last_transaction":"PLACED_ORDER",
+    "ratio_to_median_purchase_price":5626,
+    "repeat_retailer": "",
+    "used_chip": "",
+    "used_pin_number": "",
+    "online_order": "",
+    "fraud": ""
+}
