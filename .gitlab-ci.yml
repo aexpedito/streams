@@ -1,0 +1,25 @@
+stages:
+  - validate
+  - test
+  - evaluate
+
+validate-code:
+  stage: validate
+  image: python:3.10
+  script:
+    - pip install flake8
+    - flake8 .
+
+run-tests:
+  stage: test
+  image: python:3.10
+  script:
+    - pip install -r requirements.txt
+    - pytest --cov=. tests/
+
+evaluate-model:
+  stage: evaluate
+  image: python:3.10
+  script:
+    - pip install -r requirements.txt
+    - python evaluate.py
